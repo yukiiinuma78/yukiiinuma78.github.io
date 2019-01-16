@@ -1,70 +1,434 @@
 <!DOCTYPE html>
-<html lang="ja">
-    <head>
-       <meta charset="UTF-8">
-       <meta name="viewport" content="width=device-width,initial-scale=1">
-       <link href="https://rawgithub.com/jasonm23/markdown-css-themes/gh-pages/markdown7.css" rel="stylesheet"></link>
-       <link rel="stylesheet" type="text/css" href="../style.css">
-       <title>Lesson day2</title>
-   </head>
-    <body>
-        <div id="container">
-        </div>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-alpha1/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-        <div><a class="home" href="https://yukiiinuma78.github.io">home</a></div>
-        <a style="color:aquamarine" href="https://yukiiinuma78.github.io">home</a>
-        <ul>
-            <li><h1>day1</h1></li>
-            <li><h2>day2</h2></li>
-            <li><h3>day3</h3></li>
-            <li><h4>day4</h4></li>
-            <li><h5>day5</h5></li>
-        </ul>
-        <script>
-var markdown = (function() {/*
-　　　　　
-　　　　　
-## 1日目
-### 8：30　着・挨拶回り
-### 9：00　トレーニング・リフトへ挨拶
-### 11：00 ホテル側と打ち合わせ及び両替　
-### □早めに夕食の時間を設定してもらう17：30
-### □受付の時間を話す13：00
-### □チェックアウト時間+荷物どこに置くか聞く（加藤くんには夕食時に話す）
-### □ミーティングの場所についてロビー開いてるか？聞く
+<html>
+<head>
+<title>test.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+	font-size: 14px;
+	padding: 0 12px;
+	line-height: 22px;
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	color: #4080D0;
+	text-decoration: none;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: inherit;
+	line-height: auto;
+}
+
+a:hover {
+	color: #4080D0;
+	text-decoration: underline;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left: 5px solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 14px;
+	line-height: 19px;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+.mac code {
+	font-size: 12px;
+	line-height: 18px;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+/** Theming */
+
+.vscode-light,
+.vscode-light pre code {
+	color: rgb(30, 30, 30);
+}
+
+.vscode-dark,
+.vscode-dark pre code {
+	color: #DDD;
+}
+
+.vscode-high-contrast,
+.vscode-high-contrast pre code {
+	color: white;
+}
+
+.vscode-light code {
+	color: #A31515;
+}
+
+.vscode-dark code {
+	color: #D7BA7D;
+}
+
+.vscode-light pre:not(.hljs),
+.vscode-light code > div {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre:not(.hljs),
+.vscode-dark code > div {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre:not(.hljs),
+.vscode-high-contrast code > div {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+.vscode-light blockquote,
+.vscode-dark blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.vscode-high-contrast blockquote {
+	background: transparent;
+	border-color: #fff;
+}
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family:  "Meiryo", "Segoe WPC", "Segoe UI", "SFUIText-Light", "HelveticaNeue-Light", sans-serif, "Droid Sans Fallback";
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+</head>
+<body>
+<blockquote>
+<h2 id="1%E6%97%A5%E7%9B%AE">1日目</h2>
+</blockquote>
+<pre class="hljs"><code><div>8：30　着・挨拶回り
+9：00　トレーニング・リフトへ挨拶
+11：00 ホテル側と打ち合わせ及び両替　
+□早めに夕食の時間を設定してもらう17：30
+□受付の時間を話す13：00
+□チェックアウト時間+荷物どこに置くか聞く（加藤くんには夕食時に話す）
+□ミーティングの場所についてロビー開いてるか？聞く
 　　
-### 11：30 従食
-### 13：00 受付開始
+11：30 従食
+13：00 受付開始
 □フロントで机・ペン借りる
 □同意書を書いてもらう　署名忘れず　
 □保険入ってもらう（盗保）８００円　できる限り入ってもらう→入りたくない→自己責任注意喚起
 □優待券持っていたら期限を確認して優待券分の金額を返却→領収書を書いてもらう（保管）　宛名：オーストリアスキー教室　但し書き：優待券台として
 □住所変更確認
 □スタンプカード＆ワッペンを渡す。
-□スタンプカード飯沼印を押す
-□レッスンが終わったら、ナイター券800円自分で買ってもらう
+#### □スタンプカード飯沼印を押す
+#### □レッスンが終わったら、ナイター券800円自分で買ってもらう
 
 ### 13：45 レッスン開始
-□全体写真撮影　
+#### □全体写真撮影　
 ### 15：30 VTR撮影
 ### 15：45 レッスン終了・リフト券返却・夕食時間伝達（17：30～）・ナイターレッスン時間伝達（19：00～）・VTRレッスン時間伝達（17：10～）
 ### 16：00 トレーニング
 ### 17：00 リフト券返却・お金勘定・終了報告・VTR見直し＆レッスン 
-□自己紹介
-□VTRMT
-□チェックアウト時間話す
-□朝食の時間連絡
-□ナイターレッスン時間連絡
+#### □自己紹介
+#### □VTRMT
+#### □チェックアウト時間話す
+#### □朝食の時間連絡
+#### □ナイターレッスン時間連絡
 ### 17：30 お食事　レストランにて
 ### 19：00 ナイターレッスン開始
-□ナイターレッスン全体写真撮影
+#### □ナイターレッスン全体写真撮影
 ### 20：00 サーキュレーションVTRレッスン
 ### 21：00 ナイターレッスン終了 
 ### 22：00 フェイスブック更新
----
-### 2日目
-### 7：30　朝食・レッスン時間伝達・検定について連絡（認定料はもらわない、検定を受けるのは自由、合格したら認定料は貰う）
+</div></code></pre>
+<blockquote>
+<h2 id="2%E6%97%A5%E7%9B%AE">2日目</h2>
+</blockquote>
+<pre class="hljs"><code><div>### 7：30　朝食・レッスン時間伝達・検定について連絡（認定料はもらわない、検定を受けるのは自由、合格したら認定料は貰う）
 ### 9：30 　レッスン開始
 ### 11：30　レッスン終了（午後のレッスン時間を話す）（検定を受ける人は11：45までに教師部屋に来てもらう→受ける人は検定用紙を記載してもらう）
 ### 11：45　検定用紙記載
@@ -76,10 +440,7 @@ var markdown = (function() {/*
 ### 16：45　合格者写真（認定料を徴収する-領収書を書いてもらう）
 ### 17：00　フロントで支払い（リフト券代金、宿泊代、従食代※お金があったら）
 ### 18：00　フェイスブック更新
+</div></code></pre>
 
-*/}).toString().match(/\/\*([^]*)\*\//)[1];
-           var md = marked(markdown);
-           $("#container").append(md);
-       </script>
-    </body>
+</body>
 </html>
